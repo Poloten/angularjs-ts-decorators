@@ -1,0 +1,71 @@
+{
+  "name": "angular-ts-decorators",
+  "version": "3.7.15",
+  "license": "MIT",
+  "author": {
+    "name": "Vlad Sternbach",
+    "email": "vlad.sternbach@gmail.com",
+    "url": "https://github.com/vsternbach"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vsternbach/angular-ts-decorators.git"
+  },
+  "homepage": "https://github.com/vsternbach/angular-ts-decorators",
+  "keywords": [
+    "angular decorators",
+    "angular-decorators",
+    "typescript decorators",
+    "typescript-decorators",
+    "decorators",
+    "angular ts decorators",
+    "angular-ts-decorators",
+    "angular typescript decorators",
+    "angular-typescript-decorators",
+    "anguarjs decorators",
+    "anguarjs-decorators"
+  ],
+  "main": "angular-ts-decorators.umd.js",
+  "module": "angular-ts-decorators.js",
+  "jsnext:main": "angular-ts-decorators.js",
+  "types": "types/index.d.ts",
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^2.4.0"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.8.4",
+    "@types/jasmine": "^3.3.12",
+    "@types/node": "^12.0.2",
+    "angular": "^1.8.3",
+    "angular-mocks": "^1.8.3",
+    "copyfiles": "^2.1.0",
+    "coveralls": "^3.0.3",
+    "jasmine-core": "^3.4.0",
+    "karma": "^4.4.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.2",
+    "karma-jasmine": "^2.0.1",
+    "karma-typescript": "^4.1.1",
+    "rimraf": "^2.6.3",
+    "rollup": "^1.12.3",
+    "standard-version": "^9.3.2",
+    "tslint": "^5.16.0",
+    "typescript": "4.2.4",
+    "uglify-es": "^3.3.9"
+  },
+  "peerDependencies": {
+    "angular": "^1.8.3",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "clean": "rimraf dist coverage",
+    "test": "karma start --single-run",
+    "test:dev": "karma start",
+    "posttest": "cat ./coverage/lcov.info | coveralls",
+    "build": "npm run clean && tsc && rollup -c && copyfiles package.json README.md CHANGELOG.md LICENSE dist/ && rimraf dist/temp",
+    "uglify": "uglifyjs --compress drop_console --mangle --output; done",
+    "release": "standard-version",
+    "postrelease": "git push origin master --follow-tags"
+  }
+}
